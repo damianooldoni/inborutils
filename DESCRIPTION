@@ -13,7 +13,8 @@ Imports:
     dplyr,
     leaflet,
     sp,
-    rgbif
+    rgbif,
+    purrr
 Suggests:
     knitr,
     rmarkdown,

@@ -11,7 +11,7 @@
 #' @importFrom purrr map
 #' @importFrom dplyr bind_cols select
 #' @importFrom assertthat assert_that
-#' @importFrom sp SpatialPointsDataFrame, over, proj4string, spTransform
+#' @importFrom sp SpatialPointsDataFrame over proj4string spTransform
 counts_pts_in_polygons <- function(df, polygons_df,
                                    lat_col = "decimalLatitude",
                                    lon_col = "decimalLongitude",
@@ -64,7 +64,7 @@ counts_pts_in_polygons <- function(df, polygons_df,
   pts_square <- over(polygons_df, pts_df, returnList = TRUE)
 
   # count how many points are in each polygon
-  n_of_pts_square <- purrr:::map(pts_square, ~ nrow(.))
+  n_of_pts_square <- purrr::map(pts_square, ~ nrow(.))
   n_of_pts_square <- data.frame(id = names(n_of_pts_square),
                                            value = unlist(n_of_pts_square))
 
